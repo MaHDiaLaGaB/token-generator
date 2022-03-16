@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Token
+{% endblock title %}
+
+{% block main %}
+
+<div class="container bg-dark">
+    <div class="text">
+        Token Generator
+    </div>
+    <div class="input-data">
+        <div id="show" class="display">
+            <input type="text">
+            <span class="far fa-copy" onclick="copy()"></span>
+            <span class="fas fa-copy" onclick="copy()"></span>
+        </div>
+        <button id="generate">Generate Token</button>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#generate').click(function () {
+            $.getJSON('/get_token', function (dat) {
+                $('#show').text(dat);
+            });
+        });
+    });
+</script>
+
+{% endblock main %}
