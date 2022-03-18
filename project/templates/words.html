@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+Words
+{% endblock title %}
+
+{% block main %}
+
+<div class="container bg-dark">
+    <div class="text">
+        Words Generator
+    </div>
+    <div class="input-data">
+        <div id="show" class="display">
+            <input type="text">
+            <!-- <span class="far fa-copy" onclick="copy()"></span>
+            <span class="fas fa-copy" onclick="copy()"></span> -->
+        </div>
+        <div>
+            <button id="generate">Generate Words</button>
+            <button id="copy">copy</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#generate').click(function () {
+            $.getJSON('/get_words', function (dat) {
+                $('#show').text(dat);
+            });
+        });
+    });
+    $(document).ready(function () {
+        $("#copy").click(function () {
+            $("input").select();
+            alert("Success");
+            document.execCommand('copy');
+            console.log(
+                'Great!!',
+                'Content copied to clipboard',
+                'success'
+            )
+        });
+    });
+</script>
+
+{% endblock main %}

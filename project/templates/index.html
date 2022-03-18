@@ -22,17 +22,20 @@ Password
 <script>
     $(document).ready(function () {
         $('#generate').click(function () {
+            $('span.far').css('display', 'block');
+            $('span.fas').css('display', 'none')
             $.getJSON('/get_pass', function (dat) {
                 $('#show').text(dat);
+
             });
         });
     });
 </script>
 <script>
 
-    const display = document.querySelector("input"),
-        copyBtn = document.querySelector("span.far"),
-        copyActive = document.querySelector("span.fas");
+    const display = document.querySelector("input");
+    const copyBtn = document.querySelector("span.far");
+    const copyActive = document.querySelector("span.fas");
     function copy() {
         copyBtn.style.display = "none";
         copyActive.style.display = "block";

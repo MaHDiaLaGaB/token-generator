@@ -1,3 +1,4 @@
+import re
 import random
 import string
 import secrets
@@ -19,6 +20,7 @@ def flatt_list(nest_list):
                 yield j
         else:
             yield i
+    
 
 
 class PassGenerator(object):
@@ -48,3 +50,26 @@ class PassGenerator(object):
             shuffle(samples)
             self.list.insert(i, samples[i])
         return "".join(self.list)
+    
+    def word_generator(self):
+
+        with open('project/static/words.txt', 'r') as text:
+            lines = text.readlines()
+            for _ in lines:
+                # self.list.append(_)
+                # print(self.list)
+                re.sub(r"[^a-zA-Z0-9]+", " ", _)
+                arr = list(_.split(' '))
+                self.list.append(arr)
+            my_arr = list(flatt_list(self.list))
+            for _ in range(15):
+                random_word = random.choice(shuffle(my_arr))
+                self.password.append(random_word)
+            return " ".join(self.password)
+
+            
+            
+
+
+# x = PassGenerator()
+# x.word_generator()
