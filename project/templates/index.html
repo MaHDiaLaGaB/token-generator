@@ -12,37 +12,27 @@ Password
     </div>
     <div class="input-data">
         <div id="show" class="display">
-            <input type="text">
-            <span class="far fa-copy" onclick="copy()"></span>
-            <span class="fas fa-copy" onclick="copy()"></span>
+            <!-- <input type="text"> -->
+            <!-- <span class="far fa-copy" onclick="copy()"></span>
+            <span class="fas fa-copy" onclick="copy()"></span> -->
         </div>
-        <button id="generate">Generate Password</button>
+        <button id="genPass">Generate Password</button>
+        <button id="copy">Copy to clipboard</button>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $('#generate').click(function () {
-            $('span.far').css('display', 'block');
-            $('span.fas').css('display', 'none')
-            $.getJSON('/get_pass', function (dat) {
-                $('#show').text(dat);
+<!-- <script>
 
-            });
-        });
-    });
-</script>
-<script>
-
-    const display = document.querySelector("input");
-    const copyBtn = document.querySelector("span.far");
-    const copyActive = document.querySelector("span.fas");
-    function copy() {
-        copyBtn.style.display = "none";
-        copyActive.style.display = "block";
-        display.select();
-        document.execCommand("copy");
-    }
-
-</script>
+    document.getElementById("copy")
+        .onclick = function () {
+            let text = document.getElementById("show").value;
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    alert('Text copied to clipboard');
+                })
+                .catch(err => {
+                    alert('Error in copying text: ', err);
+                });
+        }
+</script> -->
 
 {% endblock main %}

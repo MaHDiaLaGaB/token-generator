@@ -12,21 +12,12 @@ Token
     </div>
     <div class="input-data">
         <div id="show" class="display">
-            <input type="text">
+            <!-- <input type="text">
             <span class="far fa-copy" onclick="copy()"></span>
-            <span class="fas fa-copy" onclick="copy()"></span>
+            <span class="fas fa-copy" onclick="copy()"></span> -->
         </div>
-        <button id="generate">Generate Token</button>
+        <button id="genToken">Generate Token</button>
+        <button id="copy">Copy to clipboard</button>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $('#generate').click(function () {
-            $.getJSON('/get_token', function (dat) {
-                $('#show').text(dat);
-            });
-        });
-    });
-</script>
-
 {% endblock main %}

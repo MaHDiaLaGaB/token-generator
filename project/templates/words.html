@@ -12,24 +12,17 @@ Words
     </div>
     <div class="input-data">
         <div id="show" class="display">
-            <input type="text">
+            <!-- <input type="text"> -->
             <!-- <span class="far fa-copy" onclick="copy()"></span>
             <span class="fas fa-copy" onclick="copy()"></span> -->
         </div>
         <div>
-            <button id="generate">Generate Words</button>
-            <button id="copy">copy</button>
+            <button id="genWords">Generate Words</button>
+            <button id="copy">Copy to clipboard</button>
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $('#generate').click(function () {
-            $.getJSON('/get_words', function (dat) {
-                $('#show').text(dat);
-            });
-        });
-    });
+<!-- <script>
     $(document).ready(function () {
         $("#copy").click(function () {
             $("input").select();
@@ -42,6 +35,6 @@ Words
             )
         });
     });
-</script>
+</script> -->
 
 {% endblock main %}
